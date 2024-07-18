@@ -38,8 +38,8 @@ jobs:
 
       - name: Get release version
         run: |
-          echo "$RELEASE_OUTPUT"
           RELEASE_OUTPUT=$(npx semantic-release)
+          echo "$RELEASE_OUTPUT"
           RELEASE_VERSION=$(echo "$RELEASE_OUTPUT" | grep -oP 'Published release \K.*? ')
           if [[ -z $RELEASE_VERSION ]]; then
             echo "No release version found. Exiting..."
